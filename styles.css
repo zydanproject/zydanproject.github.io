@@ -1,0 +1,138 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #7ABA78;
+    overflow: hidden; /* Menghilangkan scroll */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle, #D2E0FB 10%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #D2E0FB 20%);
+    background-size: 30px 30px; /* Adjust the size of the pattern */
+    animation: moveBackground 8s linear infinite; /* Adjust the animation duration and timing function */
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20%, 20%);
+    }
+}
+
+.container {
+    background-color: #C6EBC5;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-sizing: border-box; /* Pastikan padding termasuk dalam width */
+    transform: scale(0.8);
+    animation: showContainer 0.25s ease-in both; /* Animation for smooth load */
+}
+
+@keyframes showContainer {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+#inputText {
+    font-family: "MOBO-Regular.otf";
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #FEFDED;
+    border-radius: 8px;
+    resize: none;
+    font-size: 16px;
+    box-sizing: border-box; /* Pastikan padding termasuk dalam width */
+}
+
+.output-container {
+    display: none; /* Menyembunyikan outputContainer */
+}
+
+.copy-button {
+    font-family: "YasashisaGothicBold-V2.otf";
+    background: linear-gradient(to right, #ADBC9F 0%, #436850 50%, #12372A 100%); /* Green gradient */
+    background-size: 200% auto; /* Creates two gradients side-by-side */
+    color: white;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 20px;
+    animation: gradient 5s ease infinite; /* Animation for smooth loop */
+}
+
+@keyframes gradient {
+    0% {
+      background-position: 0% 0%; /* Starts with left gradient */
+    }
+    50% {
+      background-position: 100% 0%; /* Moves to right gradient at midpoint */
+    }
+    100% {
+      background-position: 0% 0%; /* Back to left gradient for loop */
+    }
+}
+
+.copy-button:hover {
+    background: linear-gradient(to right, #001524 0%, #001524 50%, #001524 100%); /* Blue gradient */
+}
+
+.copy-button:active {
+    animation: clicked 0.02s ease-in both;
+}
+
+@keyframes clicked {
+    to {
+        background: linear-gradient(to right, #000b13 0%, #000b13 50%, #000b13 100%); /* Blue gradient */
+        color: rgb(255, 255, 255);
+        transform: scale(1.01);
+        margin-top: 10.05px;
+        margin-bottom: 0.5px;
+    }
+}
+@font-face {
+    font-family: "Fontspring-DEMO-greycliffcf";
+    src: url('assets/Fontspring-DEMO-greycliffcf-bold.otf'); 
+}
+
+@font-face {
+    font-family: "MOBO-Bold.otf";
+    src: url('assets/MOBO-Bold.otf'); 
+}
+
+@font-face {
+    font-family: "YasashisaGothicBold-V2.otf";
+    src: url('assets/YasashisaGothicBold-V2.otf'); 
+}
+
+@font-face {
+    font-family: "MOBO-Regular.otf";
+    src: url('assets/MOBO-Regular.otf'); 
+}
