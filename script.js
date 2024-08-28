@@ -13,21 +13,22 @@ function processInput() {
     if (options.length > 0) {
         const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let alphabetIndex = 0;
-        let foundEmptyLine = false;
+        let foundSeparator = false;
 
         options.forEach(option => {
             const trimmedOption = option.trim();
+            
+            // Periksa apakah baris merupakan separator '*' atau '/'
             if (trimmedOption === '*' || trimmedOption === '/') {
-                // Jika ditemukan baris kosong, set foundEmptyLine menjadi true
-                foundEmptyLine = true;
-            } else if (foundEmptyLine) {
-                // Jika ditemukan baris kosong sebelumnya, tambahkan huruf alfabet ke opsi
+                foundSeparator = true;
+            } else if (foundSeparator && trimmedOption !== '') {
+                // Cetak dengan huruf alfabet jika ditemukan separator dan baris tidak kosong
                 const formattedOption = `${alphabet[alphabetIndex++]}. ${trimmedOption}`;
                 const optionElement = document.createElement('div');
                 optionElement.textContent = formattedOption;
                 outputContainer.appendChild(optionElement);
-            } else {
-                // Jika belum ditemukan baris kosong, tambahkan opsi tanpa huruf alfabet
+            } else if (!foundSeparator && trimmedOption !== '') {
+                // Cetak langsung jika belum menemukan separator dan baris tidak kosong
                 const optionElement = document.createElement('div');
                 optionElement.textContent = trimmedOption;
                 outputContainer.appendChild(optionElement);
